@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ClientService/ClientService.iml" filepath="$PROJECT_DIR$/ClientService/ClientService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eureka/Eureka.iml" filepath="$PROJECT_DIR$/Eureka/Eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FeinCircuitBracker.iml" filepath="$PROJECT_DIR$/FeinCircuitBracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShopService/ShopService.iml" filepath="$PROJECT_DIR$/ShopService/ShopService.iml" />
+    </modules>
+  </component>
+</project>
