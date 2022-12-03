@@ -21,7 +21,6 @@ public class ClientService {
         this.circuitBreakerFactory = circuitBreakerFactory;
     }
 
-
     public List<Client> all() {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("ListClients");
         String url = "http://localhost:8080/clients/";
@@ -30,13 +29,11 @@ public class ClientService {
         return Arrays.stream(clients).toList();
     }
 
-
     public Client getById(Integer id) {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("Client");
         String url = "http://localhost:8080/clients/" + id;
         return circuitBreaker.run(() -> restTemplate.getForObject(url, Client.class),
                 throwable -> new Client("SERVICE ERROR"));
     }
-
 
 }
