@@ -28,7 +28,7 @@ public class ClientService {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("ListClients");
         String url = "http://localhost:8080/clients/";
         Client[] clients = circuitBreaker.run(() -> restTemplate.getForObject(url, Client[].class),
-                throwable -> errorListClientResponse());
+                throwable -> new Client[] {new Client("SERVICE ERROR")});
         return Arrays.stream(clients).toList();
     }
 
@@ -38,16 +38,7 @@ public class ClientService {
         String url = "http://localhost:8080/clients/" + id;
 
         return circuitBreaker.run(() -> restTemplate.getForObject(url, Client.class),
-                throwable -> errorClientResponse());
-    }
-
-    private Client errorClientResponse() {
-        return new Client("SERVICE ERROR");
-    }
-
-    private Client[] errorListClientResponse() {
-        return new Client[] {new Client("SERVICE ERROR")};
-
+                throwable -> new Client("SERVICE ERROR"));
     }
 
 
