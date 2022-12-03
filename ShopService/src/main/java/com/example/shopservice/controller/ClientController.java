@@ -17,6 +17,11 @@ public class ClientController {
         this.clientService = clientService;
     }
 
+    @GetMapping("clients")
+    public ResponseEntity<?> all(){
+        return new ResponseEntity<>(clientService.all(), HttpStatus.OK);
+    }
+
     @GetMapping("clients/{id}")
     public ResponseEntity<?> getById(@PathVariable Integer id){
         return new ResponseEntity<>(clientService.getById(id), HttpStatus.OK);
